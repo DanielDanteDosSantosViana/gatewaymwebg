@@ -17,14 +17,14 @@ func NewServer() *Server {
 }
 
 func (s *Server) Listen(url string) {
-	init()
+	s.init()
 	err := http.ListenAndServeTLS(url, public, privkey, nil)
 	if err != nil {
 		log.Fatal("Error init Server : ", err)
 	}
 }
 
-func init() {
+func (s *Server) init() {
 	proxy := handlers.NewProxy()
 	http.HandleFunc("/", http.HandlerFunc(proxy.ProxyRequest))
 }
