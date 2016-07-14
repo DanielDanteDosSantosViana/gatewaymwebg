@@ -1,7 +1,7 @@
 package main
 
 import (
-	"tile_auth/server"
+	"github.com/DanielDanteDosSantosViana/tile_auth/server"
 )
 
 func main() {

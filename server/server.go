@@ -1,9 +1,9 @@
 package server
 
 import (
+	"github.com/DanielDanteDosSantosViana/tile_auth/handlers"
 	"log"
 	"net/http"
-	"tile_auth/handlers"
 )
 
 const public = "server_cert.pem"
