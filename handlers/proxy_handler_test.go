@@ -1,14 +1,13 @@
-package test
+package handlers
 
 import (
 	"net/http"
 	"net/http/httptest"
 	"testing"
-	"tile_auth/handlers"
 )
 
 func TestRequestProxy(t *testing.T) {
-	proxy := handlers.NewProxy()
+	proxy := NewProxy()
 	req, _ := http.NewRequest("POST", "", nil)
 	w := httptest.NewRecorder()
 	proxy.ProxyRequest(w, req)
