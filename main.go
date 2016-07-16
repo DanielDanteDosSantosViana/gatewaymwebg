@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/DanielDanteDosSantosViana/tile_auth/server"
+	"github.com/DanielDanteDosSantosViana/gatewaymwebg/server"
 )
 
 func main() {

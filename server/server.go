@@ -1,7 +1,7 @@
 package server
 
 import (
-	"github.com/DanielDanteDosSantosViana/tile_auth/handlers"
+	"github.com/DanielDanteDosSantosViana/gatewaymwebg/handlers"
 	"log"
 	"net/http"
 )
