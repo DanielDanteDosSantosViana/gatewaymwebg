@@ -1,4 +1,4 @@
-# gatewaymwebg
-Gateway MWEBG foi feito para redirecionar requisições para as rotas definidas no arquivo de configuração
+# Gatewaymwebg
+Gateway MWEBG to redirect requests to a particular server.
 
 [![Build Status](https://api.travis-ci.org/DanielDanteDosSantosViana/gatewaymwebg.svg)](https://api.travis-ci.org/DanielDanteDosSantosViana/gatewaymwebg.svg?branch=master)
