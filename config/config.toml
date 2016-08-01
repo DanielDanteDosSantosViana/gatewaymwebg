@@ -1,0 +1,31 @@
+[[services]]
+url = "/exemplo1"
+ip ="1233"
+host ="localhost"
+method = "GET"
+type = "json/application"
+queryParam =""
+
+[[services]]
+url = "/exemplo2"
+ip ="1233"
+host ="localhost"
+method = "GET"
+type = "json/application"
+queryParam =""
+
+[[services]]
+url = "/exemplo3"
+ip ="1233"
+host ="localhost"
+method = "GET"
+type = "json/application"
+queryParam =""
+
+[[services]]
+url = "/exemplo4"
+ip ="1233"
+host ="localhost"
+method = "GET"
+type = "json/application"
+queryParam =""
