@@ -8,7 +8,7 @@ import (
 
 func TestRequestProxy(t *testing.T) {
 	proxy := NewProxy()
-	req, _ := http.NewRequest("POST", "", nil)
+	req, _ := http.NewRequest("GET", "/exemplo1", nil)
 	w := httptest.NewRecorder()
 	proxy.ProxyRequest(w, req)
 	if w.Code != http.StatusOK {

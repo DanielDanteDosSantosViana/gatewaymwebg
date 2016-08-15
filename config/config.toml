@@ -1,5 +1,6 @@
 [[services]]
-url = "/exemplo1"
+urlDest = "http://google.com"
+urlSrc = "/exemplo1"
 ip ="1233"
 host ="localhost"
 method = "GET"
@@ -7,15 +8,18 @@ type = "json/application"
 queryParam =""
 
 [[services]]
-url = "/exemplo2"
+urlDest = "/exemplo2"
+urlSrc = "/exemplo1"
 ip ="1233"
 host ="localhost"
 method = "GET"
 type = "json/application"
 queryParam =""
+
 
 [[services]]
 url = "/exemplo3"
+urlSrc = "/exemplo1"
 ip ="1233"
 host ="localhost"
 method = "GET"
@@ -24,6 +28,7 @@ queryParam =""
 
 [[services]]
 url = "/exemplo4"
+urlSrc = "/exemplo1"
 ip ="1233"
 host ="localhost"
 method = "GET"

@@ -1,27 +1,35 @@
 package build
 
 import (
-	"fmt"
+	"errors"
 	"github.com/DanielDanteDosSantosViana/gatewaymwebg/config"
 	"net/http"
 	"net/url"
 )
 
+var (
+	ErrInvalidURL = errors.New("Invalid url")
+)
+
 type RequestUrlBuilder struct {
-	next   RequestBuild
-	Config config.Config
+	next        RequestBuild
+	serviceConf config.Service
 }
 
-func (rUrl *RequestUrlBuilder) Build(rq *http.Request) *http.Request {
-	u, err := url.Parse("http://bing.com/search?q=dotnet")
+func (rUrl *RequestUrlBuilder) Build(rq *http.Request) (*http.Request, error) {
+	u, err := url.Parse(rUrl.serviceConf.UrlDest)
+	if err != nil {
+		return nil, ErrInvalidURL
+	}
 	rq.URL = u
-	fmt.Errorf("Could not decode config.toml: %v", err)
-	return rq
+	return rq, nil
+
 }
+
 func (rUrl *RequestUrlBuilder) Previous(previous RequestBuild) {
 	rUrl.next = previous
 }
 
-func NewUrlBuilder(conf config.Config) *RequestUrlBuilder {
-	return &RequestUrlBuilder{nil, conf}
+func NewUrlBuilder(serviceConf config.Service) *RequestUrlBuilder {
+	return &RequestUrlBuilder{nil, serviceConf}
 }

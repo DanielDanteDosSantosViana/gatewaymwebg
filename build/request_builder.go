@@ -1,9 +1,13 @@
 package build
 
 import (
-	"fmt"
+	"errors"
 	"github.com/DanielDanteDosSantosViana/gatewaymwebg/config"
 	"net/http"
+)
+
+var (
+	ErrCreateRequestBuilder = errors.New("Request Builder error in make request")
 )
 
 type RequestBuilder struct {
@@ -16,20 +20,15 @@ func NewRequestBuilder(req *http.Request) *RequestBuilder {
 	return rb
 }
 
-func (rb *RequestBuilder) Build() *http.Request {
-	configuration := config.New()
-	conf, err := configuration.Load()
+func (rb *RequestBuilder) Build() (*http.Request, error) {
+	service, err := config.FindServiceIn(rb.req)
 	if err != nil {
-		fmt.Print(err)
+		return nil, err
 	}
-	rUrl := NewUrlBuilder(conf)
-	rh := NewHeaderBuilder(conf)
 
+	rUrl := NewUrlBuilder(service)
+	rh := NewHeaderBuilder(service)
 	rUrl.Previous(rh)
 
 	return rUrl.Build(new(http.Request))
-}
-
-func (rb *RequestBuilder) defineChain() {
-
 }
