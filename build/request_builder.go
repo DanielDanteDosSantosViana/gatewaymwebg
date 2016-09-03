@@ -14,9 +14,9 @@ type RequestBuilder struct {
 	req *http.Request
 }
 
-func NewRequestBuilder(req *http.Request) *RequestBuilder {
+func NewRequestBuilder(request *http.Request) *RequestBuilder {
 	rb := new(RequestBuilder)
-	rb.req = req
+	rb.req = request
 	return rb
 }
 
@@ -25,10 +25,8 @@ func (rb *RequestBuilder) Build() (*http.Request, error) {
 	if err != nil {
 		return nil, err
 	}
-
 	rUrl := NewUrlBuilder(service)
 	rh := NewHeaderBuilder(service)
 	rUrl.Previous(rh)
-
 	return rUrl.Build(new(http.Request))
 }

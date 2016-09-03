@@ -1,11 +1,12 @@
-package config
+package test
 
 import (
+	"github.com/DanielDanteDosSantosViana/gatewaymwebg/config"
 	"testing"
 )
 
 func TestConfigFileMustBeLoaded(t *testing.T) {
-	configuration := New()
+	configuration := config.New()
 	_, err := configuration.Load()
 	if err != nil {
 		t.Errorf("Error Config don't working :  %v", err)
@@ -14,7 +15,7 @@ func TestConfigFileMustBeLoaded(t *testing.T) {
 }
 
 func TestIPMustBeNonEmpty(t *testing.T) {
-	configuration := New()
+	configuration := config.New()
 	conf, _ := configuration.Load()
 	ip := conf.Services[0].Ip
 	if ip == "" {
@@ -23,7 +24,7 @@ func TestIPMustBeNonEmpty(t *testing.T) {
 }
 
 func TestHostMustBeNonEmpty(t *testing.T) {
-	configuration := New()
+	configuration := config.New()
 	conf, _ := configuration.Load()
 	host := conf.Services[0].Host
 	if host == "" {
@@ -32,7 +33,7 @@ func TestHostMustBeNonEmpty(t *testing.T) {
 }
 
 func TestMethodMustBeNonEmpty(t *testing.T) {
-	configuration := New()
+	configuration := config.New()
 	conf, _ := configuration.Load()
 	method := conf.Services[0].Method
 	if method == "" {

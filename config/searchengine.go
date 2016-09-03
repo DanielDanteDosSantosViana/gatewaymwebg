@@ -2,6 +2,7 @@ package config
 
 import (
 	"errors"
+	"log"
 	"net/http"
 )
 
@@ -17,8 +18,8 @@ func FindServiceIn(req *http.Request) (Service, error) {
 	}
 
 	url := req.URL.String()
+	log.Printf("URL do request : %v", url)
 	method := req.Method
-
 	services := conf.Services
 	for _, v := range services {
 		if v.UrlSrc == url {
@@ -27,6 +28,5 @@ func FindServiceIn(req *http.Request) (Service, error) {
 			}
 		}
 	}
-
 	return Service{}, ErrorServiceNotFound
 }
