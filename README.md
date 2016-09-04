@@ -20,4 +20,14 @@ method = "GET"
 type = "json/application"
 queryParam =""
 ```
+##Note:
+Description about a parameters in file configuration
+```
+urlDest -> Url that represent redirect to the destination
+ulrSrc -> path parameter(key) that you need to send and redirect to urlDest
+host -> host to Dest
+method -> method http that represent service(urldest)
+type -> type param that a service need
+
+```
 
