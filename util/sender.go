@@ -2,6 +2,7 @@ package util
 
 import (
 	"errors"
+	"log"
 	"net/http"
 	"strings"
 )
@@ -14,6 +15,7 @@ func Send(req *http.Request) (*http.Response, error) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
+		log.Printf("Error send %v", err)
 		return nil, errors.New("Error sending request to the url : " + req.URL.String())
 	}
 	isRespOk, err := isValidResponse(resp)

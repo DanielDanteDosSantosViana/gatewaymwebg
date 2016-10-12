@@ -1,19 +1,24 @@
 [[services]]
 urlDest = "http://danielddsv.com.br/movie_store/lancamentos"
 urlSrc = "/exemplo1"
-ip ="1233"
 host ="localhost"
 method = "GET"
-type = "json/application"
+type = "application/json"
 queryParam =""
+
 
 [[services]]
 urlDest = "http://danielddsv.com.br/movie_store/generos/tipos/total"
 urlSrc = "/exemplo6"
-ip ="1233"
 host ="localhost"
 method = "GET"
-type = "json/application"
+type = "application/json"
 queryParam =""
 
-
+[[services]]
+urlDest = "http://danielddsv.com.br/movie_store/email/sendContato"
+urlSrc = "/exemplo10"
+host ="localhost"
+method = "POST"
+type = "application/json"
+queryParam =""

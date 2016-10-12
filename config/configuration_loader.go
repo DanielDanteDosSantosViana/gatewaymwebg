@@ -14,7 +14,6 @@ type Config struct {
 type Service struct {
 	UrlDest    string
 	UrlSrc     string
-	Ip         string
 	Host       string
 	Method     string
 	Type       string

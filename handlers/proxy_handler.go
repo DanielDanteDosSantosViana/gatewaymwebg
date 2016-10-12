@@ -1,6 +1,7 @@
 package handlers
 
 import (
+	"fmt"
 	"github.com/DanielDanteDosSantosViana/gatewaymwebg/build"
 	"github.com/DanielDanteDosSantosViana/gatewaymwebg/config"
 	sender "github.com/DanielDanteDosSantosViana/gatewaymwebg/util"
@@ -32,21 +33,32 @@ func (ph *ProxyHandler) ProxyRequest(w http.ResponseWriter, r *http.Request) {
 		if err == config.ErrorServiceNotFound {
 			logError("config file", err)
 			w.WriteHeader(http.StatusNotFound)
+			fmt.Fprintf(w, "Config file Error: %v", err)
 			return
 		}
 		logError("internal Server", err)
 		w.WriteHeader(http.StatusInternalServerError)
-	}
-
-	resp, err := sender.Send(req)
-	if err != nil {
-		logError("when send http", err)
-		w.WriteHeader(resp.StatusCode)
+		fmt.Fprintf(w, "internal Server : %v", err)
 		return
 	}
-	defer resp.Body.Close()
 
-	result, _ := ioutil.ReadAll(resp.Body)
+	resp, errResp := sender.Send(req)
+	defer resp.Body.Close()
+	result, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		logError("Error when read response", err)
+		w.WriteHeader(http.StatusInternalServerError)
+		fmt.Fprintf(w, "Error when read response : %v", err)
+		return
+	}
+
+	if errResp != nil {
+		logError("when send http", err)
+		w.WriteHeader(resp.StatusCode)
+		w.Write(result)
+		return
+	}
+
 	w.WriteHeader(resp.StatusCode)
 	w.Write(result)
 }

@@ -21,6 +21,7 @@ func FindServiceIn(req *http.Request) (Service, error) {
 	log.Printf("URL do request : %v", url)
 	method := req.Method
 	services := conf.Services
+	log.Printf("SERVICES : %v", services)
 	for _, v := range services {
 		if v.UrlSrc == url {
 			if v.Method == method {

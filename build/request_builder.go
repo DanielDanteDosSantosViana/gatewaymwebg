@@ -25,8 +25,14 @@ func (rb *RequestBuilder) Build() (*http.Request, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	rUrl := NewUrlBuilder(service)
+	rm := NewMethodBuilder(service)
 	rh := NewHeaderBuilder(service)
-	rUrl.Previous(rh)
+	pb := NewParamBuilder(service, rb.req)
+
+	rUrl.Previous(rm)
+	rm.Previous(rh)
+	rh.Previous(pb)
 	return rUrl.Build(new(http.Request))
 }

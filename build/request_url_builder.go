@@ -22,7 +22,7 @@ func (rUrl *RequestUrlBuilder) Build(rq *http.Request) (*http.Request, error) {
 		return nil, ErrInvalidURL
 	}
 	rq.URL = u
-	return rq, nil
+	return rUrl.next.Build(rq)
 
 }
 
