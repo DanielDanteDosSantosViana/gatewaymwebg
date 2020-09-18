@@ -1,7 +1,7 @@
 package build
 
 import (
-	"github.com/DanielDanteDosSantosViana/gatewaymwebg/config"
+	"gatewaymwebg/config"
 	"net/http"
 )
 

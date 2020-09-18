@@ -1,0 +1,4 @@
+github.com/BurntSushi/toml v0.3.1 h1:WXkYYl6Yr3qBf1K79EBnL4mak0OimBfB0XUf9Vl28OQ=
+github.com/BurntSushi/toml v0.3.1/go.mod h1:xHWCNGjB5oqiDr8zfno3MHue2Ht5sIBksp03qcyfWMU=
+github.com/DanielDanteDosSantosViana/gatewaymwebg v0.0.0-20161012195224-5b992d9501d2 h1:iNOimBVmHeyfrkGeH1sxhxRhkymrnYPrh53FOHwYzQQ=
+github.com/DanielDanteDosSantosViana/gatewaymwebg v0.0.0-20161012195224-5b992d9501d2/go.mod h1:z1sE/OQ91b6nt9e5PxsBvEfHnymo7XmqlxG5B9xi3JY=

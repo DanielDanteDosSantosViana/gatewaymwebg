@@ -11,6 +11,7 @@ var (
 )
 
 func FindServiceIn(req *http.Request) (Service, error) {
+
 	loader := &ConfigurationLoader{}
 	conf, error := loader.Load()
 	if error != nil {

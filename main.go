@@ -1,10 +1,12 @@
 package main
 
 import (
-	"github.com/DanielDanteDosSantosViana/gatewaymwebg/server"
+	"gatewaymwebg/server"
+	"log"
 )
 
 func main() {
 	server := server.NewServer()
-	server.Listen(":8080/gateway")
+	log.Print("Gatewaymwebg is alive...")
+	server.Listen(":8081")
 }

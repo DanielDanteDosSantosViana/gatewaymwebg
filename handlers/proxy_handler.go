@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"fmt"
-	"github.com/DanielDanteDosSantosViana/gatewaymwebg/build"
-	"github.com/DanielDanteDosSantosViana/gatewaymwebg/config"
-	sender "github.com/DanielDanteDosSantosViana/gatewaymwebg/util"
+	"gatewaymwebg/build"
+	"gatewaymwebg/config"
+	sender "gatewaymwebg/util"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -18,8 +18,6 @@ func NewProxy() *ProxyHandler {
 }
 
 func (ph *ProxyHandler) ProxyRequest(w http.ResponseWriter, r *http.Request) {
-	w.Header().Add("Strict-Transport-Security", "max-age=63072000; includeSubDomains")
-
 	if isFavicoRequest(r) {
 		w.Header().Set("Content-Type", "image/x-icon'")
 		w.WriteHeader(http.StatusOK)

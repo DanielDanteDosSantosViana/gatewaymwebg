@@ -1,13 +1,11 @@
 package server
 
 import (
-	"github.com/DanielDanteDosSantosViana/gatewaymwebg/handlers"
+	"gatewaymwebg/handlers"
 	"log"
 	"net/http"
 )
 
-const public = "server_cert.pem"
-const privkey = "server_key.pem"
 
 type Server struct {
 }
@@ -18,7 +16,7 @@ func NewServer() *Server {
 
 func (s *Server) Listen(url string) {
 	s.init()
-	err := http.ListenAndServeTLS(url, public, privkey, nil)
+	err := http.ListenAndServe(url,nil)
 	if err != nil {
 		log.Fatal("Error init Server : ", err)
 	}
@@ -26,5 +24,5 @@ func (s *Server) Listen(url string) {
 
 func (s *Server) init() {
 	proxy := handlers.NewProxy()
-	http.HandleFunc("/", http.HandlerFunc(proxy.ProxyRequest))
+	http.HandleFunc("/", proxy.ProxyRequest)
 }
